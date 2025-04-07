@@ -1,2 +1,69 @@
-tech used : html/css, javascript, php, sql
-libraries used : bootstrap, Chart.js
+# main language used : english 
+# tech used : html/css, javascript, php, sql
+# libraries used : bootstrap, Chart.js
+# naming convention : camelCase 
+
+## User Stories : 
+
+
+# US1 : En tant que visiteur, je veux voir une page d'accueil avec un header et un footer pour naviguer facilement sur le site.
+Critères d’acceptation :
+- Créer index.php avec Bootstrap.
+- Intégrer un header responsive avec logo + menu.
+- Intégrer un footer avec liens utiles.
+
+# US2: Création d'un header.
+Critères d’acceptation :
+- responsive
+- logo 
+- menu
+
+# US3: Création du footer avec liens utiles. 
+Critères d’acceptation :
+- Mentions légales
+- Mentions du/des membres(s) du projet
+
+# US4 : En tant que visiteur, je veux voir une vitrine attrayante sur la page d'accueil expliquant l'objectif du site.
+Critères d’acceptation :
+- Ajouter une section "À propos" avec texte + image.
+- Intégrer un call-to-action (ex: "Explorer les données").
+
+# US5 : En tant qu’administrateur, je veux une base MariaDB pour stocker les données des plantations d’arbres.
+Critères d’acceptation:
+- Modéliser la base (tables : arbres, arrondissements, annees).
+- Implémenter les requêtes SQL de création (CREATE TABLE).
+
+# US6 : En tant qu’administrateur, je veux charger un jeu de données initial en JSON pour peupler la base.
+Critères d’acceptation:
+- Convertir le fichier .json en requêtes SQL (INSERT).
+- Créer un script PHP pour l’import automatique.
+
+# US7 : En tant que visiteur, je veux voir un graphique (Chart.js) montrant l’évolution des plantations par année.
+Critères d’acceptation :
+- Requêter la base via PHP pour récupérer les données.
+- Afficher un graphique dynamique avec filtres (année/arrondissement)
+
+# US8 : En tant que visiteur, je veux filtrer les données par arrondissement.
+Critères d’acceptation:
+- Ajouter un menu déroulant pour sélectionner un arrondissement.
+- Mettre à jour le graphique via AJAX.
+
+# US9 : En tant qu’utilisateur, je veux rechercher des arbres par espèce, année, ou arrondissement.
+Critères d’acceptation
+- Créer un formulaire de recherche avec champs multiples.
+- Générer des requêtes SQL dynamiques (PHP).
+
+# US10 : En tant qu’admin, je veux uploader un fichier JSON pour mettre à jour la base.
+Critères d’acceptation:
+- Créer un formulaire d’upload avec validation.
+- Traiter le fichier côté serveur (PHP + SQL).
+
+# US11 : En tant qu’admin, je veux me connecter via un formulaire sécurisé.
+Critères d’acceptation :
+- Créer une table users (login/mot de passe hashé).
+- Développer une page de login (PHP sessions).
+
+# US12 : En tant qu’admin, je veux accéder à un dashboard pour gérer les données.
+Critères d’acceptation :
+- Page protégée avec tableau de bord (statistiques).
+- Boutons pour exporter/importer des données.
