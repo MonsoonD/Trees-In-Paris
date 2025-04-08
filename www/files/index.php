@@ -1,4 +1,8 @@
-<?php include 'includes/header.php'; ?>
+<?php include 'header.php'; ?>
+<?php require_once '../../includes/dbConnect.php';
+
+$stmt = $db->query("SELECT * FROM planting_projects LIMIT 10");
+$trees = $stmt->fetchAll(PDO::FETCH_ASSOC);; ?>
 
 <!-- Hero Section -->
 <div class="bg-success text-white text-center py-5 mb-5">
@@ -157,4 +161,4 @@
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'footer.php'; ?>
