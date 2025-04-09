@@ -1,37 +1,41 @@
-# main language used : english 
-# tech used : html/css, javascript, php, sql
+# main language(s) used : french (website) & english (commits & file names)  
+# tech used : html/css, javascript, php, sql 
 # libraries used : bootstrap, Chart.js
 # naming convention : camelCase 
 
-## User Stories : 
-
+## User Stories (in french): 
 
 # US1 : En tant que visiteur, je veux voir une page d'accueil avec un header et un footer pour naviguer facilement sur le site.
 Critères d’acceptation :
 - Créer index.php avec Bootstrap.
 - Intégrer un header responsive avec logo + menu.
 - Intégrer un footer avec liens utiles.
+###### fini
 
 # US2: Création d'un header.
 Critères d’acceptation :
 - responsive
 - logo 
 - menu
+###### fini
 
 # US3: Création du footer avec liens utiles. 
 Critères d’acceptation :
 - Mentions légales
-- Mentions du/des membres(s) du projet
+- Mentions du/des membres(s) du projet*
+###### fini
 
 # US4 : En tant que visiteur, je veux voir une vitrine attrayante sur la page d'accueil expliquant l'objectif du site.
 Critères d’acceptation :
 - Ajouter une section "À propos" avec texte + image.
 - Intégrer un call-to-action (ex: "Explorer les données").
+###### fini
 
 # US5 : En tant qu’administrateur, je veux une base MariaDB pour stocker les données des plantations d’arbres.
 Critères d’acceptation:
 - Modéliser la base (tables : arbres, arrondissements, annees).
-- Implémenter les requêtes SQL de création (CREATE TABLE).
+- Implémenter les requêtes SQL de création (CREATE TABLE).*
+###### fini
 
 # US6 : En tant qu’administrateur, je veux charger un jeu de données initial en JSON pour peupler la base.
 Critères d’acceptation:
