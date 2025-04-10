@@ -8,10 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../assets/css/style.css' : 'assets/css/style.css'; ?>">
     <style>
         /* Styles personnalisés pour l'en-tête transparent */
+        body {
+            padding-top: 0;
+            margin: 0; /* Assurez-vous qu'il n'y a pas de marge par défaut */
+            overflow-x: hidden; /* Éviter le défilement horizontal */
+        }
+        
         .navbar-transparent {
             background-color: transparent !important;
             transition: background-color 0.3s ease;
@@ -31,10 +39,6 @@
         
         .navbar-scrolled .logo-icon {
             font-size: 1.75rem;
-        }
-        
-        body {
-            padding-top: 0;
         }
         
         .navbar {
@@ -67,13 +71,24 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        
+        /* Assurez-vous que le contenu principal commence après la navbar */
+        main {
+            padding-top: 0; /* Retirez tout padding-top supplémentaire */
+        }
+        
+        /* Style pour la section hero qui doit commencer en haut de la page */
+        .hero-section {
+            margin-top: 0;
+            padding-top: 0;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/index.php">
+            <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>">
                 <i class="fas fa-tree logo-icon me-2"></i>
                 <span class="fw-bold">Les Arbres à Paris</span>
             </a>
@@ -85,19 +100,19 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" 
-                           href="/index.php">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'map.php') ? 'active' : ''; ?>" 
-                           href="/pages/map.php">Carte</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'statistics.php') ? 'active' : ''; ?>" 
-                           href="/pages/statistics.php">Statistiques</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'statistics.php' : 'pages/statistics.php'; ?>">Statistiques</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'projects.php') ? 'active' : ''; ?>" 
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'projects.php' : 'pages/projects.php'; ?>">Projets</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'about.php') ? 'active' : ''; ?>" 
-                           href="/pages/about.php">À propos</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'about.php' : 'pages/about.php'; ?>">À propos</a>
                     </li>
                 </ul>
             </div>

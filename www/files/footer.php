@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="/assets/img/tree-logo-white.png" alt="Logo Arbre" class="me-2" style="height: 40px;">
+                        <i class="fas fa-tree fa-2x text-white me-2"></i>
                         <h5 class="mb-0 fw-bold">Les Arbres à Paris</h5>
                     </div>
                     <p class="text-white text-opacity-75">Explorer et documenter la forêt urbaine de Paris, un arbre à la fois. Notre mission est de sensibiliser à l'importance des arbres urbains.</p>
@@ -19,27 +19,22 @@
                     <h5 class="fw-bold mb-3 text-white">Liens Rapides</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="/index.php" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-home me-2"></i> Accueil
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="/pages/map.php" class="text-white text-opacity-75 text-decoration-none hover-bright">
-                                <i class="fas fa-map-marked-alt me-2"></i> Carte Interactive
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="/pages/statistics.php" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'statistics.php' : 'pages/statistics.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-chart-bar me-2"></i> Statistiques des Arbres
                             </a>
                         </li>
                         <li class="mb-2">
-                            <a href="/pages/projects.php" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'projects.php' : 'pages/projects.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-seedling me-2"></i> Projets de Plantation
                             </a>
                         </li>
                         <li>
-                            <a href="/pages/about.php" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'about.php' : 'pages/about.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-info-circle me-2"></i> À Propos du Projet
                             </a>
                         </li>
@@ -87,7 +82,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- JavaScript personnalisé -->
-    <script src="/assets/js/main.js"></script>
+    <script src="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../assets/js/main.js' : 'assets/js/main.js'; ?>"></script>
     
     <!-- Ajout d'effets de survol pour les cartes et liens du pied de page -->
     <style>
