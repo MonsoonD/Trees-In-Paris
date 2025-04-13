@@ -92,10 +92,15 @@ if (empty($chartYears) || empty($chartTrees)) {
         <div class="col-md-10">
             <div class="card shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title mb-3">Filtrer les Données</h5>
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-filter me-2 text-success"></i>Filtrer les données
+                        <span id="activeFilters" class="badge bg-success ms-2 d-none">Filtres actifs</span>
+                    </h5>
                     <form id="chartFilterForm" class="row g-3">
                         <div class="col-md-4">
-                            <label for="arrondissement" class="form-label">Arrondissement</label>
+                            <label for="arrondissement" class="form-label">
+                                <i class="fas fa-map-marker-alt me-1 text-success"></i>Arrondissement
+                            </label>
                             <select class="form-select" id="arrondissement" name="arrondissement">
                                 <option value="all" selected>Tous les arrondissements</option>
                                 <?php foreach ($arrondissements as $arrond): ?>
@@ -104,7 +109,9 @@ if (empty($chartYears) || empty($chartTrees)) {
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="yearStart" class="form-label">Année de début</label>
+                            <label for="yearStart" class="form-label">
+                                <i class="fas fa-calendar me-1 text-success"></i>Année de début
+                            </label>
                             <select class="form-select" id="yearStart" name="yearStart">
                                 <?php for ($year = $minYear; $year <= $maxYear; $year++): ?>
                                 <option value="<?php echo $year; ?>" <?php echo ($year == $minYear) ? 'selected' : ''; ?>><?php echo $year; ?></option>
@@ -112,7 +119,9 @@ if (empty($chartYears) || empty($chartTrees)) {
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="yearEnd" class="form-label">Année de fin</label>
+                            <label for="yearEnd" class="form-label">
+                                <i class="fas fa-calendar-alt me-1 text-success"></i>Année de fin
+                            </label>
                             <select class="form-select" id="yearEnd" name="yearEnd">
                                 <?php for ($year = $minYear; $year <= $maxYear; $year++): ?>
                                 <option value="<?php echo $year; ?>" <?php echo ($year == $maxYear) ? 'selected' : ''; ?>><?php echo $year; ?></option>
@@ -369,6 +378,110 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Créer le graphique initial
     createChart(chartYears, chartTrees);
+    
+    // Fonction pour mettre à jour le graphique
+    function updateChart() {
+        const arrondissement = document.getElementById('arrondissement').value;
+        const yearStart = document.getElementById('yearStart').value;
+        const yearEnd = document.getElementById('yearEnd').value;
+        
+        // Afficher un indicateur de chargement
+        const chartCanvas = document.getElementById('treePlantingChart');
+        chartCanvas.style.opacity = '0.5';
+        
+        // Construire l'URL de l'API avec le chemin correct
+        const apiUrl = '<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../' : ''; ?>api/get-tree-data.php';
+        
+        // Appel AJAX pour récupérer les données filtrées
+        fetch(`${apiUrl}?arrondissement=${arrondissement}&yearStart=${yearStart}&yearEnd=${yearEnd}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur réseau: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Restaurer l'opacité du graphique
+                chartCanvas.style.opacity = '1';
+                
+                if (data.success) {
+                    createChart(data.years, data.trees);
+                    
+                    // Mettre à jour le titre du graphique pour indiquer le filtre actif
+                    let filterInfo = '';
+                    if (arrondissement !== 'all') {
+                        const arrondSelect = document.getElementById('arrondissement');
+                        const arrondName = arrondSelect.options[arrondSelect.selectedIndex].text;
+                        filterInfo += ` - ${arrondName}`;
+                    }
+                    
+                    if (yearStart !== '<?php echo $minYear; ?>' || yearEnd !== '<?php echo $maxYear; ?>') {
+                        filterInfo += ` (${yearStart} - ${yearEnd})`;
+                    }
+                    
+                    // Mettre à jour le titre du graphique si possible
+                    if (treePlantingChart.options.plugins.title) {
+                        treePlantingChart.options.plugins.title.text = `Évolution des plantations d'arbres par année${filterInfo}`;
+                        treePlantingChart.update();
+                    }
+                } else {
+                    console.error('Erreur:', data.message);
+                    alert('Erreur lors de la récupération des données: ' + data.message);
+                }
+            })
+            .catch(error => {
+                // Restaurer l'opacité du graphique
+                chartCanvas.style.opacity = '1';
+                
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue lors de la récupération des données: ' + error.message);
+            });
+    }
+    
+    // Écouter les changements sur tous les filtres
+    document.getElementById('arrondissement').addEventListener('change', updateChart);
+    document.getElementById('yearStart').addEventListener('change', updateChart);
+    document.getElementById('yearEnd').addEventListener('change', updateChart);
+    
+    // Empêcher la soumission du formulaire qui recharge la page
+    const filterForm = document.getElementById('chartFilterForm');
+    filterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        updateChart();
+    });
+    
+    // Bouton de réinitialisation
+    const resetButton = document.getElementById('resetFilters');
+    resetButton.addEventListener('click', function() {
+        // Réinitialiser les sélecteurs
+        document.getElementById('arrondissement').value = 'all';
+        document.getElementById('yearStart').value = '<?php echo $minYear; ?>';
+        document.getElementById('yearEnd').value = '<?php echo $maxYear; ?>';
+        
+        // Mettre à jour le graphique
+        updateChart();
+    });
+    
+    // Ajouter une validation pour s'assurer que l'année de fin est supérieure ou égale à l'année de début
+    document.getElementById('yearStart').addEventListener('change', function() {
+        const yearStart = parseInt(this.value);
+        const yearEndSelect = document.getElementById('yearEnd');
+        const yearEnd = parseInt(yearEndSelect.value);
+        
+        if (yearEnd < yearStart) {
+            yearEndSelect.value = yearStart;
+        }
+    });
+    
+    document.getElementById('yearEnd').addEventListener('change', function() {
+        const yearEnd = parseInt(this.value);
+        const yearStartSelect = document.getElementById('yearStart');
+        const yearStart = parseInt(yearStartSelect.value);
+        
+        if (yearStart > yearEnd) {
+            yearStartSelect.value = yearEnd;
+        }
+    });
 });
 </script>
 
