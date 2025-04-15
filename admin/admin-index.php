@@ -87,7 +87,7 @@ $lastUpdate = $lastUpdateStmt->fetch(PDO::FETCH_ASSOC)['last_update'] ?? 'N/A';
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1><i class="fas fa-tree text-success me-2"></i> Administration - Les Arbres à Paris</h1>
             <div>
-                <a href="../www/files/index.php" class="btn btn-outline-success me-2" target="_blank">
+                <a href="../www/files/index.php" class="btn btn-outline-success me-2">
                     <i class="fas fa-external-link-alt me-1"></i> Voir le site
                 </a>
                 <a href="logout.php" class="btn btn-danger">
