@@ -53,7 +53,7 @@ if (empty($chartYears) || empty($chartTrees)) {
 ?>
 
 <!-- Section Héro avec Image de Fond -->
-<div class="hero-section position-relative d-flex align-items-center" style="min-height: 100vh; background: url('../img/bg.png') no-repeat center center; background-size: cover; margin-top: 0; padding-top: 0;">
+<div class="hero-section position-relative d-flex align-items-center" style="min-height: 100vh; background: url('../img/bg.png') no-repeat center center; background-size: cover;">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5;"></div>
     <div class="container position-relative text-white text-center py-5">
         <div class="row justify-content-center">
@@ -63,9 +63,6 @@ if (empty($chartYears) || empty($chartTrees)) {
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center animate__animated animate__fadeInUp">
                     <a href="#tree-chart" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-sm">
                         <i class="fas fa-chart-line me-2"></i> Explorer les Données
-                    </a>
-                    <a href="pages/statistics.php" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill shadow-sm">
-                        <i class="fas fa-chart-bar me-2"></i> Voir les Statistiques Détaillées
                     </a>
                 </div>
             </div>
@@ -246,11 +243,6 @@ if (empty($chartYears) || empty($chartTrees)) {
             </div>
             <?php endforeach; ?>
         </div>
-        <div class="text-center mt-4">
-            <a href="pages/projects.php" class="btn btn-success rounded-pill px-4 py-2">
-                <i class="fas fa-list me-2"></i> Voir tous les projets
-            </a>
-        </div>
     </div>
 </div>
 
@@ -260,13 +252,13 @@ if (empty($chartYears) || empty($chartTrees)) {
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="mb-3">Vous souhaitez en savoir plus sur les arbres à Paris ?</h2>
-                <p class="lead mb-4">Explorez nos statistiques détaillées et nos projets de plantation</p>
+                <p class="lead mb-4">Explorez nos statistiques détaillées et la documentation</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="pages/statistics.php" class="btn btn-light btn-lg px-4 rounded-pill">
+                    <a href="#tree-chart" class="btn btn-light btn-lg px-4 rounded-pill">
                         <i class="fas fa-chart-bar me-2"></i> Voir les Statistiques
                     </a>
-                    <a href="pages/projects.php" class="btn btn-outline-light btn-lg px-4 rounded-pill">
-                        <i class="fas fa-seedling me-2"></i> Explorer les Projets
+                    <a href="about.php" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+                        <i class="fas fa-seedling me-2"></i> Voir la documentation
                     </a>
                 </div>
             </div>

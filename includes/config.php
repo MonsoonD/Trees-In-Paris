@@ -1,43 +1,39 @@
 <?php
-// C:\xampp\htdocs\Trees-In-Paris\includes\dbConnect.php
-
-// Fonction simple pour charger les variables d'environnement depuis .env
-function loadEnv($path) {
-    if (!file_exists($path)) {
-        return false;
-    }
-    
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$envFile = __DIR__ . '/../.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         // Ignorer les commentaires
         if (strpos(trim($line), '#') === 0) {
             continue;
         }
         
-        // Extraire la clé et la valeur
         list($name, $value) = explode('=', $line, 2);
         $name = trim($name);
         $value = trim($value);
         
         // Supprimer les guillemets si présents
-        if (strpos($value, '"') === 0 || strpos($value, "'") === 0) {
+        if (strpos($value, '"') === 0 && strrpos($value, '"') === strlen($value) - 1) {
             $value = substr($value, 1, -1);
         }
         
-        // Définir la variable d'environnement
-        $_ENV[$name] = $value;
-        putenv("$name=$value");
+        define($name, $value);
     }
-    
-    return true;
 }
 
-// Chemin vers le fichier .env
-$envPath = __DIR__ . '/../.env';
+// Définir le hash du mot de passe admin
+if (defined('ADMIN_PASSWORD') && !defined('ADMIN_PASSWORD_HASH')) {
+    define('ADMIN_PASSWORD_HASH', password_hash(ADMIN_PASSWORD, PASSWORD_DEFAULT));
+}
 
-// Charger les variables d'environnement si le fichier existe
-if (file_exists($envPath)) {
-    loadEnv($envPath);
+// Définir l'environnement par défaut si non défini
+if (!defined('APP_ENV')) {
+    define('APP_ENV', 'production');
+}
+
+// Définir le mode debug par défaut si non défini
+if (!defined('APP_DEBUG')) {
+    define('APP_DEBUG', false);
 }
 
 // Paramètres de connexion à la base de données

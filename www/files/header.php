@@ -82,9 +82,26 @@
             margin-top: 0;
             padding-top: 0;
         }
+        
+        /* Style pour le bouton admin */
+        .admin-link {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .admin-link:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <?php
+    // Vérifier si l'utilisateur est connecté en tant qu'admin
+    session_start();
+    $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
+    ?>
+    
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
         <div class="container">
@@ -100,20 +117,30 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" 
-                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'statistics.php') ? 'active' : ''; ?>" 
-                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'statistics.php' : 'pages/statistics.php'; ?>">Statistiques</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'projects.php') ? 'active' : ''; ?>" 
-                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'projects.php' : 'pages/projects.php'; ?>">Projets</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'index.php' : 'files/index.php'; ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'about.php') ? 'active' : ''; ?>" 
-                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'about.php' : 'pages/about.php'; ?>">À propos</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'about.php' : 'files/about.php'; ?>">À propos</a>
                     </li>
+                    <?php if ($isAdmin): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user-shield me-1"></i> Admin (<?php echo htmlspecialchars($_SESSION['admin_username']); ?>)
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                            <li><a class="dropdown-item" href="../../admin/admin-index.php"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="../../admin/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
+                        </ul>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link admin-link" href="../../admin/login.php">
+                            <i class="fas fa-user-shield me-1"></i> Admin
+                        </a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

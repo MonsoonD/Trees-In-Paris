@@ -41,26 +41,31 @@ Critères d’acceptation:
 Critères d’acceptation:
 - Convertir le fichier .json en requêtes SQL (INSERT).
 - Créer un script PHP pour l’import automatique.
+###### fini
 
 # US7 : En tant que visiteur, je veux voir un graphique (Chart.js) montrant l’évolution des plantations par année.
 Critères d’acceptation :
 - Requêter la base via PHP pour récupérer les données.
 - Afficher un graphique dynamique avec filtres (année/arrondissement)
+###### fini
 
 # US8 : En tant que visiteur, je veux filtrer les données par arrondissement.
 Critères d’acceptation:
 - Ajouter un menu déroulant pour sélectionner un arrondissement.
 - Mettre à jour le graphique via AJAX.
+###### fini
 
 # US9 : En tant qu’utilisateur, je veux rechercher des arbres par espèce, année, ou arrondissement.
 Critères d’acceptation
 - Créer un formulaire de recherche avec champs multiples.
 - Générer des requêtes SQL dynamiques (PHP).
+###### fini
 
 # US10 : En tant qu’admin, je veux uploader un fichier JSON pour mettre à jour la base.
 Critères d’acceptation:
 - Créer un formulaire d’upload avec validation.
 - Traiter le fichier côté serveur (PHP + SQL).
+###### fini
 
 # US11 : En tant qu’admin, je veux me connecter via un formulaire sécurisé.
 Critères d’acceptation :
@@ -71,3 +76,6 @@ Critères d’acceptation :
 Critères d’acceptation :
 - Page protégée avec tableau de bord (statistiques).
 - Boutons pour exporter/importer des données.
+
+
+## admin sessions : - username : newadmin - password : admin123

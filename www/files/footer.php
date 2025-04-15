@@ -23,18 +23,8 @@
                                 <i class="fas fa-home me-2"></i> Accueil
                             </a>
                         </li>
-                        <li class="mb-2">
-                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'statistics.php' : 'pages/statistics.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
-                                <i class="fas fa-chart-bar me-2"></i> Statistiques des Arbres
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'projects.php' : 'pages/projects.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
-                                <i class="fas fa-seedling me-2"></i> Projets de Plantation
-                            </a>
-                        </li>
                         <li>
-                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'about.php' : 'pages/about.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? 'about.php' : 'about.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-info-circle me-2"></i> À Propos du Projet
                             </a>
                         </li>
@@ -59,11 +49,6 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-light btn-sm rounded-pill px-3">
-                            <i class="fas fa-paper-plane me-2"></i> S'abonner à la Newsletter
-                        </a>
-                    </div>
                 </div>
             </div>
             <hr class="my-4 border-light opacity-25">
@@ -109,21 +94,6 @@
         
         .rounded-4 {
             border-radius: 0.75rem !important;
-        }
-        
-        /* Style de la chronologie */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20px;
-            height: 100%;
-            width: 2px;
-            background-color: #198754;
-        }
-        
-        .timeline-marker {
-            z-index: 1;
         }
         
         /* Effet de survol des liens du pied de page */
