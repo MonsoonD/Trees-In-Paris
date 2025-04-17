@@ -142,7 +142,7 @@ $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
                             <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/admin-index.php' : 'admin/admin-index.php'; ?>"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/logout.php' : 'admin/logout.php'; ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/logout.php' : 'admin/logout.php'; ?>"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
                         </ul>
                     </li>
                     <?php else: ?>

@@ -107,7 +107,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../index.php' : 'index.php'; ?>">
                 <i class="fas fa-tree logo-icon me-2"></i>
-                <span class="fw-bold">Les Arbres à Paris</span>
+                <span class="fw-bold">Trees in Paris</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Basculer la navigation">
