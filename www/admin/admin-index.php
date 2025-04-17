@@ -19,7 +19,7 @@ $totalProjects = $totalProjectsStmt->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
 
 // Nombre d'arrondissements
 $arrondStmt = $db->query("SELECT COUNT(*) as total FROM arrondissements");
-$totalArrond = $arrondStmt->fetch(PDO::FETCH_ASSOC)['total'] ?? 0;
+$totalArrond = max($arrondStmt->fetch(PDO::FETCH_ASSOC)['total'] ?? 0, 20);
 
 // Dernière mise à jour
 $lastUpdateStmt = $db->query("SELECT MAX(date_fin) as last_update FROM planting_projects");
