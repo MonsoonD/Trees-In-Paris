@@ -19,7 +19,7 @@
                     <h5 class="fw-bold mb-3 text-white">Liens Rapides</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2">
-                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
+                            <a href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '.index.php' : 'index.php'; ?>" class="text-white text-opacity-75 text-decoration-none hover-bright">
                                 <i class="fas fa-home me-2"></i> Accueil
                             </a>
                         </li>

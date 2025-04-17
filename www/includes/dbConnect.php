@@ -1,7 +1,4 @@
 <?php
-// C:\xampp\htdocs\Trees-In-Paris\includes\dbConnect.php
-
-// Fonction simple pour charger les variables d'environnement depuis .env
 function loadEnv($path) {
     if (!file_exists($path)) {
         return false;
@@ -41,23 +38,16 @@ if (file_exists($envPath)) {
 }
 
 // Paramètres de connexion à la base de données
-$host = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? 'localhost';
-$dbname = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'trees_in_paris';
-$username = $_ENV['DB_USER'] ?? getenv('DB_USER') ?? 'root';
-$password = $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? '';
+$host = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? 'mysql-trees-in-paris.alwaysdata.net';
+$dbname = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'trees-in-paris_db';
+$username = $_ENV['DB_USER'] ?? getenv('DB_USER') ?? '409531';
+$password = $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? 'Boubou78#64845236';
 
 try {
-    // Créer une connexion PDO
-    $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    
-    // Configurer PDO pour qu'il lance des exceptions en cas d'erreur
+    // Connexion directe sans utiliser .env
+    $db = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // Configurer PDO pour qu'il retourne les résultats sous forme de tableau associatif
-    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
 } catch(PDOException $e) {
-    // Afficher un message d'erreur
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 ?>

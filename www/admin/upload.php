@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['jsonFile'])) {
                     $targetTable = $_POST['targetTable'];
                     
                     // Connexion à la base de données
-                    require_once __DIR__ . '/../includes/dbConnect.php';
+                    require_once __DIR__ . '../includes/dbConnect.php';
                     
                     // Chemin où sauvegarder le fichier
                     $uploadDir = 'database/';

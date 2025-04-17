@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="login-container">
-        <a href="../www/files/index.php" class="back-link mb-4 d-block">
+        <a href="../index.php" class="back-link mb-4 d-block">
             <i class="fas fa-arrow-left me-2"></i> Retour au site
         </a>
         

@@ -37,10 +37,10 @@ if (!defined('APP_DEBUG')) {
 }
 
 // Paramètres de connexion à la base de données
-$host = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? 'localhost';
-$dbname = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'trees_in_paris';
-$username = $_ENV['DB_USER'] ?? getenv('DB_USER') ?? 'root';
-$password = $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? '';
+$host = $_ENV['DB_HOST'] ?? getenv('DB_HOST') ?? 'mysql-trees-in-paris.alwaysdata.net';
+$dbname = $_ENV['DB_NAME'] ?? getenv('DB_NAME') ?? 'trees-in-paris_db';
+$username = $_ENV['DB_USER'] ?? getenv('DB_USER') ?? '409531';
+$password = $_ENV['DB_PASSWORD'] ?? getenv('DB_PASSWORD') ?? 'Boubou78#64845236';
 
 try {
     // Créer une connexion PDO

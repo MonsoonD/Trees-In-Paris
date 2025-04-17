@@ -11,7 +11,7 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- CSS personnalisé -->
-    <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../assets/css/style.css' : 'assets/css/style.css'; ?>">
+    <link rel="stylesheet" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../assets/css/style.css' : 'assets/css/style.css'; ?>">
     <style>
         /* Styles personnalisés pour l'en-tête transparent */
         body {
@@ -105,7 +105,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'pages/') !== false) ? '../index.php' : 'index.php'; ?>">
+            <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../index.php' : 'index.php'; ?>">
                 <i class="fas fa-tree logo-icon me-2"></i>
                 <span class="fw-bold">Les Arbres à Paris</span>
             </a>
@@ -117,7 +117,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" 
-                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'index.php' : 'files/index.php'; ?>">Accueil</a>
+                           href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../index.php' : 'index.php'; ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'about.php') ? 'active' : ''; ?>" 
@@ -129,14 +129,14 @@
                             <i class="fas fa-user-shield me-1"></i> Admin (<?php echo htmlspecialchars($_SESSION['admin_username']); ?>)
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                            <li><a class="dropdown-item" href="../../admin/admin-index.php"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/admin-index.php' : 'admin/admin-index.php'; ?>"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../../admin/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
+                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/logout.php' : 'admin/logout.php'; ?>"><i class="fas fa-sign-out-alt me-2"></i>Se déconnecter</a></li>
                         </ul>
                     </li>
                     <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link admin-link" href="../../admin/login.php">
+                        <a class="nav-link admin-link" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/login.php' : 'admin/login.php'; ?>">
                             <i class="fas fa-user-shield me-1"></i> Admin
                         </a>
                     </li>

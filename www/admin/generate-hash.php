@@ -1,5 +1,5 @@
 <?php
-$password = 'admin2222'; // Remplacez par le mot de passe souhaité
+$password = 'taadmin12345'; // Remplacez par le mot de passe souhaité
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 echo "Mot de passe: $password<br>";

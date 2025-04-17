@@ -118,7 +118,7 @@ $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'index.php' : 'files/index.php'; ?>">
+            <a class="navbar-brand d-flex align-items-center" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../index.php' : 'index.php'; ?>">
                 <i class="fas fa-tree logo-icon me-2"></i>
                 <span class="fw-bold">Trees In Paris</span>
             </a>
@@ -129,7 +129,7 @@ $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'index.php' : 'files/index.php'; ?>">Accueil</a>
+                        <a class="nav-link" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../index.php' : 'index.php'; ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? 'about.php' : 'files/about.php'; ?>">À propos</a>
@@ -140,14 +140,14 @@ $isAdmin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
                             <i class="fas fa-user-shield me-1"></i> Admin (<?php echo htmlspecialchars($_SESSION['admin_username']); ?>)
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                            <li><a class="dropdown-item" href="../../admin/admin-index.php"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/admin-index.php' : 'admin/admin-index.php'; ?>"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../../admin/logout.php"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            <li><a class="dropdown-item" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/logout.php' : 'admin/logout.php'; ?>"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                         </ul>
                     </li>
                     <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link admin-link" href="../../admin/login.php">
+                        <a class="nav-link admin-link" href="<?php echo (strpos($_SERVER['REQUEST_URI'], 'files/') !== false) ? '../admin/login.php' : 'admin/login.php'; ?>">
                             <i class="fas fa-user-shield me-1"></i> Admin
                         </a>
                     </li>

@@ -16,7 +16,6 @@
                         
                         <h3 class="mt-4 text-dark">Fonctionnalités</h3>
                         <ul class="text-dark">
-                            <li><strong>Carte interactive</strong> : Explorez la répartition des arbres dans les 20 arrondissements de Paris</li>
                             <li><strong>Statistiques détaillées</strong> : Visualisez les tendances de plantation d'arbres au fil du temps avec des graphiques dynamiques</li>
                             <li><strong>Filtrage avancé</strong> : Filtrez les données par arrondissement et par année pour une analyse personnalisée</li>
                             <li><strong>Projets de plantation</strong> : Découvrez les initiatives récentes qui contribuent à l'augmentation de la canopée urbaine</li>
@@ -55,7 +54,6 @@
                         
                         <h3 class="mt-4 text-dark">Features</h3>
                         <ul class="text-dark">
-                            <li><strong>Interactive Map</strong>: Explore tree distribution across all 20 arrondissements of Paris</li>
                             <li><strong>Detailed Statistics</strong>: Visualize tree planting trends over time with dynamic charts</li>
                             <li><strong>Advanced Filtering</strong>: Filter data by district and year for customized analysis</li>
                             <li><strong>Planting Projects</strong>: Discover recent initiatives contributing to the increase of urban tree canopy</li>

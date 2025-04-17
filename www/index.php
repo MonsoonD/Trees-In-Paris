@@ -1,5 +1,5 @@
-<?php include 'header.php'; ?>
-<?php require_once '../../includes/dbConnect.php';
+<?php include 'files/header.php'; ?>
+<?php require_once 'includes/dbConnect.php';
 
 // Récupérer les statistiques globales
 $totalTreesStmt = $db->query("SELECT SUM(nombre_arbres_plantes) as total FROM planting_projects");
@@ -53,7 +53,7 @@ if (empty($chartYears) || empty($chartTrees)) {
 ?>
 
 <!-- Section Héro avec Image de Fond -->
-<div class="hero-section position-relative d-flex align-items-center" style="min-height: 100vh; background: url('../img/bg.png') no-repeat center center; background-size: cover;">
+<div class="hero-section position-relative d-flex align-items-center" style="min-height: 100vh; background: url('img/bg.png') no-repeat center center; background-size: cover;">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5;"></div>
     <div class="container position-relative text-white text-center py-5">
         <div class="row justify-content-center">
@@ -518,4 +518,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include 'files/footer.php'; ?>

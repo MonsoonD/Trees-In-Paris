@@ -1,7 +1,4 @@
 <?php
-// Ce script met à jour les mots de passe en clair dans la base de données
-// avec des versions hachées en utilisant password_hash()
-
 // Connexion à la base de données
 require_once __DIR__ . '/../includes/dbConnect.php';
 

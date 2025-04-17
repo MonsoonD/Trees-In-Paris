@@ -78,4 +78,5 @@ Critères d’acceptation :
 - Boutons pour exporter/importer des données.
 
 
-## admin sessions : - username : newadmin - password : admin123
+## admin sessions (user, password) : 'newadmin', 'admin123' ; 'treeadmin', 'taadmin12345'
+

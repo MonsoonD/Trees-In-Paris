@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../../includes/dbConnect.php';
+require_once __DIR__ . '../includes/dbConnect.php';
 
 function createMissingArrondissements($db, $jsonFile, $mappings) {
     if (!file_exists($jsonFile)) {
